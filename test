@@ -1,0 +1,16 @@
+node('master'){
+stage('create file'){
+    sh label: '', script: 'touch text'
+    
+}
+
+stage('write to file'){
+    
+    sh label: '', script: 'echo "hello">text'
+}
+
+stage('read file'){
+    sh label: '', script: 'cat text'
+    
+}
+}
