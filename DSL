@@ -1,0 +1,21 @@
+job ('simplejob'){
+  scm{
+   git('https://github.com/gangula86/gang1.git') 
+  }
+  
+  parameters{
+    stringParam('Name','DeafultName','FirstParam')
+    
+  }
+  steps{
+   shell('echo $JOB_NAME') 
+    downstreamParameterized{
+      trigger('paramjob'){
+        parameters{
+         predefinedProp('Name','$Name') 
+        }
+      }
+    }
+  }
+  
+}
